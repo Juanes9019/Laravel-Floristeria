@@ -1,9 +1,5 @@
 <?php
 
-namespace App\Http\Middleware;
-
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
-
 class VerifyCsrfToken extends Middleware
 {
     /**
@@ -13,6 +9,9 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'api/csrf-token',
-        'api/pedido/aceptar/*'
+        'api/pedido/aceptar/*',
+        'api/pedido/rechazar/*'
     ];
+
+    //midleware para dar permiso en flutter
 }

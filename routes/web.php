@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\detalleController;
 use App\Http\Controllers\Admin\inventarioController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\carritoController;
+use App\Http\Controllers\AuthController;
 
 
 
@@ -44,6 +45,12 @@ Route::get('/confirmarCarrito', [CarritoController::class, 'confirmarCarrito'])-
 
 
 Route::get('/pdf', [CarritoController::class, 'pdf'])->name('pdf');
+
+
+
+// Ruta para validar el usuario
+Route::post('/validador', [AuthController::class, 'validador'])->withoutMiddleware('auth');
+
 
 //midleware para controlar el acceso solo a los administradores
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
